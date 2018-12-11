@@ -7,13 +7,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'welcome-view',
-      component: require('@/components/mainView').default
+      name: 'mainWindows',
+      component: require('@/components/defaultView').default
     },
     {
       path: '/inspire',
       name: 'inspire',
-      component: require('@/components/InspireView').default
+      component: require('@/components/alternativeView').default
     },
     {
       path: '*',

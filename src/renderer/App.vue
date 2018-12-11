@@ -27,30 +27,30 @@
 </v-list>
     </v-navigation-drawer>
     <v-toolbar  class="window-drag" color="primary" height="32" dark flat app absolute clipped-left>
-      <v-toolbar-side-icon class="window-button" @click="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon small  class="window-button" @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="font-weight-regular subheading">Title {{isMax}}</v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <div class="window-button">
-        <v-btn small @click="minimize" icon>
+
+        <v-btn small @click="minimize" icon class="window-button">
           <v-icon small>mdi-window-minimize</v-icon>
         </v-btn>
 
-        <v-btn small @click="isMax=!isMax" icon>
+        <v-btn small @click="isMax=!isMax" icon class="window-button">
           <v-icon small v-html="isMax ? 'mdi-window-restore' : 'mdi-window-maximize'"></v-icon>
         </v-btn>
 
-        <v-btn small @click="close" icon>
+        <v-btn small @click="close" icon class="window-button">
           <v-icon small>mdi-window-close</v-icon>
         </v-btn>
-      </div>
+
 
     </v-toolbar>
-    <v-content>
-      <v-container grid-list-xs,sm,md,lg,xl>
+  
+
         <router-view></router-view>
-      </v-container>
-    </v-content>
+
+
   </v-app>
 
 </template>
