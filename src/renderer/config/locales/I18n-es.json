@@ -1,0 +1,8 @@
+{ "vuetify" : {
+    "noDataText": "No hay data"
+  },
+    "connection" : {
+        "portSelect": "Puerto",
+        "portListEmpty":"No existen puertos"
+    }
+}

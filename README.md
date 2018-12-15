@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # groundcontrol_js
 
 > An electron-vue project
@@ -21,10 +21,7 @@ npm test
 
 ```
 
----
-
 This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
-=======
+
 # GroundControl_JS
-port of GroundControl 
->>>>>>> 67aa160b2c70e68bf1f17a04843657529e75b5ef
+port of app [GroundControl](https://github.com/MaslowCNC/GroundControl) of  the [MaslowCNC](https://www.maslowcnc.com/) project.

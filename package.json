@@ -22,6 +22,7 @@
   "build": {
     "productName": "groundcontrol_js",
     "appId": "org.simulatedgreg.electron-vue",
+    "asar": "false",
     "directories": {
       "output": "build"
     },
@@ -56,15 +57,16 @@
   "dependencies": {
     "@mdi/font": "^3.2.89",
     "axios": "^0.16.1",
-    "d3": "^5.7.0",
     "gcode2svg": "^1.0.3",
     "material-design-icons-iconfont": "^4.0.3",
     "roboto-fontface": "^0.10.0",
     "serialport": "^7.1.0",
+    "snapsvg": "^0.5.1",
     "svg.js": "^2.7.1",
     "svg.panzoom.js": "^1.2.0",
     "vue": "^2.4.2",
     "vue-electron": "^1.0.6",
+    "vue-i18n": "^8.4.0",
     "vue-router": "^2.5.3",
     "vuetify": "1.2.5",
     "vuex": "^2.3.1"
@@ -87,14 +89,14 @@
     "css-loader": "^0.28.4",
     "del": "^3.0.0",
     "devtron": "^1.4.0",
-    "electron": "^1.7.5",
+    "electron": "^2.0.14",
     "electron-builder": "^19.19.1",
     "electron-debug": "^1.4.0",
     "electron-devtools-installer": "^2.2.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
-    "mocha": "^3.0.2",
+    "mocha": "^5.2.0",
     "multispinner": "^0.2.1",
     "node-loader": "^0.6.0",
     "require-dir": "^0.3.0",
@@ -102,13 +104,13 @@
     "style-loader": "^0.18.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "url-loader": "^0.5.9",
+    "url-loader": "^1.1.2",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.0.5",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.4.2",
     "webpack": "^3.5.2",
-    "webpack-dev-server": "^2.7.1",
+    "webpack-dev-server": "^2.11.3",
     "webpack-hot-middleware": "^2.18.2"
   }
 }

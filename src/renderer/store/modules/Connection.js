@@ -1,14 +1,24 @@
 import * as serial from 'serialport'
+import config from './../../config/config'
+console.log(config);
 
 const state = {
   count:0,
   listPorts: [],
-  selectedPort:null,
-  definePort:null
+  selectedPort:null
 }
 
 const getters= {
-
+  assignPort: (state) => {
+    if (state.selectedPort){
+      return new serial(state.selectedPort,{
+        autoOpen: false,
+        baudRate: config.portSpeed
+      })
+    }else {
+      return false
+    }
+  }
 }
 
 const actions = {
@@ -17,7 +27,7 @@ const actions = {
       commit('getPorts', ports)
     })
   },
-  assignPort: ({ commit }) => commit('assignPort')
+  selectPort: ({ commit }) => commit('selectPort')
 }
 
 const mutations = {
@@ -27,12 +37,6 @@ const mutations = {
   },
   selectPort (state, port){
     state.selectedPort = port
-  },
-  assignPort (state){
-    state.definePort= new serial(state.selectedPort,{
-      autoOpen: false,
-      baudRate: 57600
-    })
   }
 }
 
