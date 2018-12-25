@@ -16,6 +16,21 @@ export default new Router({
       component: require('@/components/alternativeView').default
     },
     {
+      path: '/1',
+      name: '1',
+      component: require('@/components/1').default
+    },
+    {
+      path: '/2',
+      name: '2',
+      component: require('@/components/2').default
+    },
+    {
+      path: '/3',
+      name: '3',
+      component: require('@/components/3').default
+    },
+    {
       path: '*',
       redirect: '/'
     }

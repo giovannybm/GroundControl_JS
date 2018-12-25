@@ -1,5 +1,5 @@
-import { app, BrowserWindow } from 'electron'
-
+import { app, menu, BrowserWindow } from 'electron'
+require('electron-debug')({ showDevTools: true })
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -20,6 +20,8 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    minHeight:480,
+    minWidth:800,
     // useContentSize: true
     frame: false
   })
@@ -46,6 +48,8 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+
 
 /**
  * Auto Updater

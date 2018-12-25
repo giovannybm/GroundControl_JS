@@ -6,6 +6,7 @@
       <v-card>
         <v-card-text>
           <v-select
+          
           v-model="selectPort"
           :items="$store.state.Connection.listPorts"
           item-text="comName"
@@ -30,9 +31,9 @@
     <v-card>
       <v-card-text>
         <v-select
-        v-model="$i18n.locale"
-        :items="locales"
-        item-text="key"
+        v-model="selectPort"
+        :items="$store.state.Connection.listPorts"
+        item-text="comName"
         :label="$t('connection.portSelect')"
         :no-data-text="$t('connection.portListEmpty')"
         >

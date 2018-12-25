@@ -1,57 +1,55 @@
-<template>
+<template >
 
-  <v-app id="inspire">
-    <v-navigation-drawer
-    v-model="drawer"
-    fixed
+  <v-app id="inspire" >
+    <v-toolbar
+    class="window-drag"
+    color="primary"
+    height="32px"
+    flat
     dark
-    clipped
-    app
-    width="60"
+    fixed
+    style="z-index:2;"
     >
-    <v-list>
-      <v-list-tile
-      router
-      :to="item.to"
-      :key="i"
-      v-for="(item, i) in items"
-      exact
-      >
-      <v-list-tile-action>
-        <v-icon v-html="item.icon"></v-icon>
-      </v-list-tile-action>
-      <v-list-tile-content>
-        <v-list-tile-title v-text="item.title"></v-list-tile-title>
-      </v-list-tile-content>
-    </v-list-tile>
-  </v-list>
-</v-navigation-drawer>
-<v-toolbar  class="window-drag" color="primary" height="32" dark scroll-off-screen fixed flat  absolute clipped-left app>
-  <v-toolbar-side-icon small  class="window-button" @click="drawer = !drawer"></v-toolbar-side-icon>
-  <v-toolbar-title class="font-weight-regular subheading">Title {{isMax}}</v-toolbar-title>
-  <v-spacer></v-spacer>
+    <v-toolbar-title class="body-1 font-weight-regular" >Groundcontrol JS v1.0.0</v-toolbar-title>
+    <v-spacer></v-spacer>
+
+    <v-btn icon small class="window-button" @click="minimize" >
+      <v-icon>mdi-window-minimize</v-icon>
+    </v-btn>
+
+    <v-btn icon small class="window-button" @click="isMax=!isMax">
+      <v-icon  v-html="isMax ? 'mdi-window-restore' : 'mdi-window-maximize'">mdi-window-close</v-icon>
+    </v-btn>
+
+    <v-btn icon small class="window-button" @click="close">
+      <v-icon>close</v-icon>
+    </v-btn>
+
+  </v-toolbar>
+  <router-view ></router-view>
+  <v-bottom-nav
+  transition="slide-x-transition"
+  :active.sync="bottomNav"
 
 
-  <v-btn small @click="minimize" icon class="window-button">
-    <v-icon small>mdi-window-minimize</v-icon>
+  :value="true"
+  router
+  color="darkTheme"
+  >
+  <v-btn to="/" flat color="primary" dark>
+    <span>{{$t('panelDashboard')}}</span>
+    <v-icon>mdi-vector-circle</v-icon>
+  </v-btn>
+  <v-btn to="/2" flat color="primary" dark>
+    <span>{{$t('panelActions')}}</span>
+    <v-icon>mdi-view-dashboard</v-icon>
+  </v-btn>
+  <v-btn  to="/3" flat color="primary" dark>
+    <span>{{$t('panelSettings')}}</span>
+    <v-icon>mdi-settings</v-icon>
   </v-btn>
 
-  <v-btn small @click="isMax=!isMax" icon class="window-button">
-    <v-icon small v-html="isMax ? 'mdi-window-restore' : 'mdi-window-maximize'"></v-icon>
-  </v-btn>
-
-  <v-btn small @click="close" icon class="window-button">
-    <v-icon small>mdi-window-close</v-icon>
-  </v-btn>
-
-
-</v-toolbar>
-
-<v-content >
-  <v-container fluid grid-list-md fill-height>
-    <router-view></router-view>
-  </v-container>
-</v-content>
+</v-bottom-nav>
 </v-app>
 
 </template>
@@ -60,11 +58,22 @@
 const pjson = require('../../package.json')
 import { mapGetters, mapActions } from 'vuex'
 import * as electron from 'electron'
+// import * as express from 'express'
+// import * as fs from 'fs'
+// import * as fsreaddir from 'fs-readdir-with-file-types'
+// import {callbackify} from 'util'
 
-// electron.remote.globalShortcut.register('CommandOrControl+Shift+I', () => {
+
+
+
+// electron.remote.globalShortcut.register('CommandOrControl+Shift+K', () => {
 //   electron.remote.BrowserWindow.getFocusedWindow().webContents.openDevTools()
 // })
 
+
+
+
+// console.log(menu);
 window.addEventListener('beforeunload', () => {
   electron.remote.globalShortcut.unregisterAll()
 })
@@ -74,6 +83,7 @@ window.addEventListener('beforeunload', () => {
 export default {
   name: 'control_js',
   data: () => ({
+    bottomNav: 'recent',
     isMax:null,
     clipped: false,
     drawer: true,
